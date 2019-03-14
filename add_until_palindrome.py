@@ -1,10 +1,10 @@
-class BigNum(object):
+class BigNum:
     def __init__(self, num):
         self.digits = []
         while num:
             d = num % 10
             self.digits.append(d)
-            num /= 10
+            num //= 10
     def add(self, other):
         carry = 0
         for i in range(len(other.digits)):
@@ -51,4 +51,4 @@ def add_until_palindrome(n):
 
 if __name__ == '__main__':
     n = 3209
-    print add_until_palindrome(n)
+    print(add_until_palindrome(n))
