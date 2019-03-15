@@ -1,3 +1,4 @@
+# A tree node.
 class Node:
     def __init__(self, name):
         self.name = name
@@ -13,7 +14,7 @@ class Node:
 def out(n):
     print(n.name)
 
-# A DFS using O(1) space.
+# A DFS on a tree using O(1) space.
 def dfs(n):
     last = None
     while n is not None:
