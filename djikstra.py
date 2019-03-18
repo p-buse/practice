@@ -50,7 +50,8 @@ class PriorityQueue:
     for i, (it, _) in enumerate(self.pq):
       if it == item:
         del self.pq[i]
-    heappush(self.pq, (priority, item))
+      self.pq.append((priority, item))
+      heapify(self.pq)
 
   def is_empty(self):
     return len(self.pq) == 0
