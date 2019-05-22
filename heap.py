@@ -1,5 +1,8 @@
+import random
+
 class Heap:
     def __init__(self):
+        # Start with an item in the heap so that 1-based swapping works.
         self.data = [None]
         self.size = 0
 
@@ -8,7 +11,7 @@ class Heap:
         self.size += 1
         pos = self.size
         while pos > 1 and self.data[pos] < self.data[pos // 2]:
-            self.data[pos], self.data[pos // 2] = self.data[pos // 2], self.data[pos]
+            self._swap(pos, pos // 2)
             pos = pos // 2
 
     def pop(self):
@@ -21,7 +24,6 @@ class Heap:
         self._percolate_up()
         return ret
 
-    
     def _percolate_up(self):
         pos = 1
         while pos * 2 <= self.size:
@@ -51,10 +53,10 @@ class Heap:
 
 def main():
     h = Heap()
-    things = [123, 103, 8510, 0, 2, -100, 3, 20]
+    things = [random.randint(0, 100) for _ in range(10)]
     for t in things:
         h.insert(t)
-    
+
     for t in sorted(things):
         print('heap: {} sorted: {}'.format(h.pop(), t))
 
