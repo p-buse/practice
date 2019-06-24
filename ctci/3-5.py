@@ -1,7 +1,6 @@
 from random import randint
 
 def stack_sort(stack):
-    tmp = []
     for n in range(len(stack), 0, -1):
         sort_one(n, stack)
 
